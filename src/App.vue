@@ -1,6 +1,9 @@
 <template>
-    <Header />
-    <section style="height: 100vh">
+    <div :class="$style.header">
+        <Header :class="$style.inner" />
+    </div>
+
+    <section :class="$style.section">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magnam nemo
         nisi odio officiis sit voluptate. A aliquid cumque cupiditate earum
         eveniet fugiat minima obcaecati reprehenderit soluta, unde. Alias
@@ -27,3 +30,34 @@ export default defineComponent({
     },
 })
 </script>
+
+<style lang="scss" module>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+
+body {
+}
+
+.header {
+    height: 100vh;
+
+    & > .inner {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+    }
+}
+
+.section {
+    height: 100vh;
+    background-color: rebeccapurple;
+    position: relative;
+}
+</style>
