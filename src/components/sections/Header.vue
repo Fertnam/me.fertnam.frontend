@@ -1,10 +1,5 @@
 <template>
-    <header
-        ref="parallax"
-        :class="$style.header"
-        @mousemove="parallax"
-        @mouseleave="clear"
-    >
+    <header ref="parallax" :class="$style.header" @mousemove="parallax">
         <div :class="$style.assets">
             <img
                 ref="html"
@@ -74,70 +69,88 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'Header',
+    data() {
+        return {
+            speed: 0.5,
+            position: {
+                x: 0,
+                y: 0,
+            },
+            coordinatePercent: {
+                x: 0,
+                y: 0,
+            },
+            coefficients: {
+                info: 8,
+                html: 20,
+                css: 25,
+                node: 20,
+                js: 20,
+                earth: 30,
+                jupiter: 30,
+                saturn: 35,
+            },
+        }
+    },
     methods: {
         parallax(event: MouseEvent): void {
             const parallax: HTMLElement = this.$refs.parallax as HTMLElement
 
+            const parallaxWidth = parallax.offsetWidth
+            const parallaxHeight = parallax.offsetHeight
+
+            const coordinateX = event.pageX - parallaxWidth / 2
+            const coordinateY = event.pageY - parallaxHeight / 2
+
+            this.coordinatePercent.x = (coordinateX / parallaxWidth) * 100
+            this.coordinatePercent.y = (coordinateY / parallaxHeight) * 100
+
             const info: HTMLElement = this.$refs.info as HTMLElement
-
-            let x: number = (parallax.offsetWidth - event.pageX * 2) / 100
-            let y: number = (parallax.offsetHeight - event.pageY * 5) / 100
-
-            console.log(event.pageX, event.pageY)
-
-            info.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const html: HTMLElement = this.$refs.html as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX * 1.5) / 100
-            y = (parallax.offsetHeight - event.pageY * 4) / 100
-
-            html.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const css: HTMLElement = this.$refs.css as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX * 1.2) / 100
-            y = (parallax.offsetHeight - event.pageY * 2) / 100
-
-            css.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const node: HTMLElement = this.$refs.node as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX * 1.4) / 100
-            y = (parallax.offsetHeight - event.pageY * 6) / 100
-
-            node.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const js: HTMLElement = this.$refs.js as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX * 1.3) / 100
-            y = (parallax.offsetHeight - event.pageY * 3) / 100
-
-            js.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const earth: HTMLElement = this.$refs.earth as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX) / 100
-            y = (parallax.offsetHeight - event.pageY) / 100
-
-            earth.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const jupiter: HTMLElement = this.$refs.jupiter as HTMLElement
-
-            x = (parallax.offsetWidth - event.pageX * -2) / 100
-            y = (parallax.offsetHeight - event.pageY * -2) / 100
-
-            jupiter.style.transform = `translateX(${x}px) translateY(${y}px)`
-
             const saturn: HTMLElement = this.$refs.saturn as HTMLElement
 
-            x = (parallax.offsetWidth - event.pageX * 0.5) / 100
-            y = (parallax.offsetHeight - event.pageY * 0.5) / 100
+            const distX: number = this.coordinatePercent.x - this.position.x
+            const distY: number = this.coordinatePercent.y - this.position.y
 
-            saturn.style.transform = `translateX(${x}px) translateY(${y}px)`
-        },
-        clear(): void {
-            // this.$refs.info.style.transform = 'translate(0)'
+            this.position.x += distX * this.speed
+            this.position.y += distY * this.speed
+
+            info.style.transform = `translate(${
+                this.position.x / this.coefficients.info
+            }%, ${this.position.y / this.coefficients.info}%)`
+
+            html.style.transform = `translate(${
+                this.position.x / this.coefficients.html
+            }%, ${this.position.y / this.coefficients.html}%)`
+
+            css.style.transform = `translate(${
+                this.position.x / this.coefficients.css
+            }%, ${this.position.y / this.coefficients.css}%)`
+
+            node.style.transform = `translate(${
+                this.position.x / this.coefficients.node
+            }%, ${this.position.y / this.coefficients.node}%)`
+
+            js.style.transform = `translate(${
+                this.position.x / this.coefficients.js
+            }%, ${this.position.y / this.coefficients.js}%)`
+
+            earth.style.transform = `translate(${
+                this.position.x / this.coefficients.earth
+            }%, ${this.position.y / this.coefficients.earth}%)`
+
+            jupiter.style.transform = `translate(${
+                this.position.x / this.coefficients.jupiter
+            }%, ${this.position.y / this.coefficients.jupiter}%)`
+
+            saturn.style.transform = `translate(${
+                this.position.x / this.coefficients.saturn
+            }%, ${this.position.y / this.coefficients.saturn}%)`
         },
     },
 })
