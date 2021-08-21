@@ -1,63 +1,71 @@
 <template>
-    <header ref="parallax" :class="$style.header" @mousemove="parallax">
+    <header ref="header" :class="$style.header">
         <div :class="$style.assets">
             <img
-                ref="html"
                 :class="[$style.html, $style.item]"
                 src="/images/header/planets/html.svg"
-                alt="HTML"
+                alt="Планета HTML"
+                data-speed="8"
             />
 
             <img
-                ref="css"
                 :class="[$style.css, $style.item]"
                 src="/images/header/planets/css.svg"
-                alt="CSS"
+                alt="Планета CSS"
+                data-speed="10"
             />
 
             <img
-                ref="node"
                 :class="[$style.node, $style.item]"
                 src="/images/header/planets/node.svg"
-                alt="Node"
+                alt="Планета Node"
+                data-speed="9"
             />
 
             <img
-                ref="js"
                 :class="[$style.js, $style.item]"
                 src="/images/header/planets/js.svg"
-                alt="JS"
+                alt="Планета JS"
+                data-speed="11"
             />
 
             <img
-                ref="earth"
                 :class="[$style.earth, $style.item]"
                 src="/images/header/planets/earth.svg"
-                alt="Земля"
+                alt="Планета Земля"
+                data-speed="15"
             />
 
             <img
-                ref="saturn"
                 :class="[$style.saturn, $style.item]"
                 src="/images/header/planets/saturn.svg"
-                alt="Сатурн"
+                alt="Планета Сатурн"
+                data-speed="18"
             />
 
             <img
-                ref="jupiter"
                 :class="[$style.jupiter, $style.item]"
                 src="/images/header/planets/jupiter.svg"
-                alt="Юпитер"
+                alt="Планета Юпитер"
+                data-speed="20"
             />
 
             <img
-                :class="[$style.surface, $style.item]"
-                src="/images/header/surface.svg"
-                alt="Поверхность"
+                :class="[$style.surface, $style.top, $style.item]"
+                src="/images/header/surfaces/top.svg"
+                alt="Верхняя часть поверхности"
+                data-speed="25"
+            />
+
+            <img
+                :class="[$style.surface, $style.bottom, $style.item]"
+                src="/images/header/surfaces/bottom.svg"
+                alt="Нижняя часть поверхности"
+                data-speed="15"
             />
         </div>
 
-        <div ref="info" :class="$style.info">
+        <div :class="$style.info" data-speed="8">
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
         </div>
@@ -66,100 +74,49 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Parallax from '@/classes/Parallax'
+
+const parallax = {
+    speed: 1,
+    position: {
+        x: 0,
+        y: 0,
+    },
+    coordinate: {
+        x: 0,
+        y: 0,
+    },
+    coefficients: {
+        info: 8,
+        html: 8,
+        css: 10,
+        node: 9,
+        js: 11,
+        earth: 15,
+        jupiter: 18,
+        saturn: 20,
+        surface: {
+            top: 25,
+            bottom: 15,
+        },
+    },
+}
 
 export default defineComponent({
     name: 'Header',
     data() {
         return {
-            speed: 0.5,
-            position: {
-                x: 0,
-                y: 0,
-            },
-            coordinatePercent: {
-                x: 0,
-                y: 0,
-            },
-            coefficients: {
-                info: 10,
-                html: 12,
-                css: 13,
-                node: 11,
-                js: 14,
-                earth: 18,
-                jupiter: 20,
-                saturn: 22,
-            },
+            parallax,
         }
     },
-    methods: {
-        parallax(event: MouseEvent): void {
-            const parallax: HTMLElement = this.$refs.parallax as HTMLElement
-
-            const parallaxWidth = parallax.offsetWidth
-            const parallaxHeight = parallax.offsetHeight
-
-            const coordinateX = event.pageX - parallaxWidth / 2
-            const coordinateY = event.pageY - parallaxHeight / 2
-
-            this.coordinatePercent.x = (coordinateX / parallaxWidth) * 100
-            this.coordinatePercent.y = (coordinateY / parallaxHeight) * 100
-
-            const info: HTMLElement = this.$refs.info as HTMLElement
-            const html: HTMLElement = this.$refs.html as HTMLElement
-            const css: HTMLElement = this.$refs.css as HTMLElement
-            const node: HTMLElement = this.$refs.node as HTMLElement
-            const js: HTMLElement = this.$refs.js as HTMLElement
-            const earth: HTMLElement = this.$refs.earth as HTMLElement
-            const jupiter: HTMLElement = this.$refs.jupiter as HTMLElement
-            const saturn: HTMLElement = this.$refs.saturn as HTMLElement
-
-            const distX: number = this.coordinatePercent.x - this.position.x
-            const distY: number = this.coordinatePercent.y - this.position.y
-
-            this.position.x += distX * this.speed
-            this.position.y += distY * this.speed
-
-            info.style.transform = `translate(${
-                this.position.x / this.coefficients.info
-            }%, ${this.position.y / this.coefficients.info}%)`
-
-            html.style.transform = `translate(${
-                this.position.x / this.coefficients.html
-            }%, ${this.position.y / this.coefficients.html}%)`
-
-            css.style.transform = `translate(${
-                this.position.x / this.coefficients.css
-            }%, ${this.position.y / this.coefficients.css}%)`
-
-            node.style.transform = `translate(${
-                this.position.x / this.coefficients.node
-            }%, ${this.position.y / this.coefficients.node}%)`
-
-            js.style.transform = `translate(${
-                this.position.x / this.coefficients.js
-            }%, ${this.position.y / this.coefficients.js}%)`
-
-            earth.style.transform = `translate(${
-                this.position.x / this.coefficients.earth
-            }%, ${this.position.y / this.coefficients.earth}%)`
-
-            jupiter.style.transform = `translate(${
-                this.position.x / this.coefficients.jupiter
-            }%, ${this.position.y / this.coefficients.jupiter}%)`
-
-            saturn.style.transform = `translate(${
-                this.position.x / this.coefficients.saturn
-            }%, ${this.position.y / this.coefficients.saturn}%)`
-        },
+    mounted() {
+        new Parallax(this.$refs.header)
     },
 })
 </script>
 
 <style lang="scss" module>
 .header {
-    //@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
     position: relative;
 
     display: flex;
@@ -181,15 +138,12 @@ export default defineComponent({
         flex-direction: column;
         align-items: center;
 
-        //font-family: 'Bungee Inline', cursive;
         font-family: 'Ranchers', cursive;
         letter-spacing: 5px;
         font-size: 3.5em;
         font-weight: bold;
 
         color: #fff;
-
-        //will-change: transform;
 
         transition: transform 100ms linear;
 
@@ -248,11 +202,18 @@ export default defineComponent({
         }
 
         & > .surface {
-            bottom: 0;
-            left: 0;
+            bottom: -2%;
+            left: -10%;
 
-            width: 100%;
-            height: 128px;
+            width: 120%;
+
+            &.top {
+                height: 140px;
+            }
+
+            &.bottom {
+                height: 80px;
+            }
         }
     }
 }
