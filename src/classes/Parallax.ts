@@ -1,45 +1,51 @@
 export default class Parallax {
-    private scene: HTMLElement
-    private speed: number = 1
+    public readonly scene: HTMLElement
+    public readonly parallaxItems: HTMLElement[]
 
-    private position = {
+    public readonly speed: number
+
+    public readonly pointer = {
         x: 0,
         y: 0,
     }
 
-    private coordinate = {
-        x: 0,
-        y: 0,
-    }
-
-    public constructor(scene: HTMLElement) {
+    public constructor(scene: HTMLElement, speed: number = 0.5) {
         this.scene = scene
-        this.scene.addEventListener('mousemove', this.parallax.bind(this))
+        this.speed = speed
+
+        this.parallaxItems = [
+            ...this.scene.querySelectorAll('[data-parallax]'),
+        ] as HTMLElement[]
+
+        this.scene.addEventListener('mousemove', this.onMouseMove.bind(this))
     }
 
-    private parallax(event: MouseEvent): void {
+    public destroy(): void {
+        this.scene.removeEventListener('mousemove', this.onMouseMove.bind(this))
+    }
+
+    private onMouseMove(event: MouseEvent): void {
         const sceneWidth = this.scene.offsetWidth
         const sceneHeight = this.scene.offsetHeight
 
-        this.coordinate.x = ((event.pageX - sceneWidth / 2) / sceneWidth) * 100
-        this.coordinate.y =
-            ((event.pageY - sceneHeight / 2) / sceneHeight) * 100
+        const distX =
+            ((event.pageX - sceneWidth / 2) / sceneWidth) * 100 - this.pointer.x
 
-        const distX: number = this.coordinate.x - this.position.x
-        const distY: number = this.coordinate.y - this.position.y
+        const distY =
+            ((event.pageY - sceneHeight / 2) / sceneHeight) * 100 -
+            this.pointer.y
 
-        this.position.x += distX * this.speed
-        this.position.y += distY * this.speed
+        this.pointer.x += distX * this.speed
+        this.pointer.y += distY * this.speed
 
-        this.scene.querySelectorAll('[data-speed]').forEach((item) => {
-            const it = item as HTMLElement
-            const speed: number = parseInt(
-                it.getAttribute('data-speed') as string
+        this.parallaxItems.forEach((item) => {
+            const offsetCoefficient: number = parseInt(
+                item.getAttribute('data-parallax') as string
             )
 
-            it.style.transform = `translate(${this.position.x / speed}%, ${
-                this.position.y / speed
-            }%)`
+            item.style.transform = `translate(${
+                this.pointer.x / offsetCoefficient
+            }%, ${this.pointer.y / offsetCoefficient}%)`
         })
     }
 }

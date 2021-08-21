@@ -5,67 +5,67 @@
                 :class="[$style.html, $style.item]"
                 src="/images/header/planets/html.svg"
                 alt="Планета HTML"
-                data-speed="8"
+                data-parallax="3"
             />
 
             <img
                 :class="[$style.css, $style.item]"
                 src="/images/header/planets/css.svg"
                 alt="Планета CSS"
-                data-speed="10"
+                data-parallax="2"
             />
 
             <img
                 :class="[$style.node, $style.item]"
                 src="/images/header/planets/node.svg"
                 alt="Планета Node"
-                data-speed="9"
+                data-parallax="2.5"
             />
 
             <img
                 :class="[$style.js, $style.item]"
                 src="/images/header/planets/js.svg"
                 alt="Планета JS"
-                data-speed="11"
+                data-parallax="2"
             />
 
             <img
                 :class="[$style.earth, $style.item]"
                 src="/images/header/planets/earth.svg"
                 alt="Планета Земля"
-                data-speed="15"
+                data-parallax="6.5"
             />
 
             <img
                 :class="[$style.saturn, $style.item]"
                 src="/images/header/planets/saturn.svg"
                 alt="Планета Сатурн"
-                data-speed="18"
+                data-parallax="8"
             />
 
             <img
                 :class="[$style.jupiter, $style.item]"
                 src="/images/header/planets/jupiter.svg"
                 alt="Планета Юпитер"
-                data-speed="20"
+                data-parallax="7"
             />
 
             <img
                 :class="[$style.surface, $style.top, $style.item]"
                 src="/images/header/surfaces/top.svg"
                 alt="Верхняя часть поверхности"
-                data-speed="25"
+                data-parallax="9"
             />
 
             <img
                 :class="[$style.surface, $style.bottom, $style.item]"
                 src="/images/header/surfaces/bottom.svg"
                 alt="Нижняя часть поверхности"
-                data-speed="15"
+                data-parallax="7"
             />
         </div>
 
-        <div :class="$style.info" data-speed="8">
+        <div :class="$style.info" data-parallax="5">
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
         </div>
@@ -76,41 +76,18 @@
 import { defineComponent } from 'vue'
 import Parallax from '@/classes/Parallax'
 
-const parallax = {
-    speed: 1,
-    position: {
-        x: 0,
-        y: 0,
-    },
-    coordinate: {
-        x: 0,
-        y: 0,
-    },
-    coefficients: {
-        info: 8,
-        html: 8,
-        css: 10,
-        node: 9,
-        js: 11,
-        earth: 15,
-        jupiter: 18,
-        saturn: 20,
-        surface: {
-            top: 25,
-            bottom: 15,
-        },
-    },
-}
-
 export default defineComponent({
     name: 'Header',
     data() {
         return {
-            parallax,
+            sceneParallax: {} as Parallax,
         }
     },
     mounted() {
-        new Parallax(this.$refs.header)
+        this.sceneParallax = new Parallax(this.$refs.header)
+    },
+    beforeUnmount() {
+        this.sceneParallax.destroy()
     },
 })
 </script>
