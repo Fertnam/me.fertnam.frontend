@@ -1,7 +1,5 @@
 <template>
-    <div :class="$style.header">
-        <Header :class="$style.inner" />
-    </div>
+    <Header :class="$style.inner" />
 
     <section :class="$style.section">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magnam nemo
@@ -41,18 +39,6 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
 
 body {
-}
-
-.header {
-    height: 100vh;
-
-    & > .inner {
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        width: 100%;
-    }
 }
 
 .section {

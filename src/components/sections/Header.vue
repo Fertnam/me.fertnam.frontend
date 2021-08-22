@@ -1,6 +1,27 @@
 <template>
-    <header ref="header" :class="$style.header">
+    <Parallax tag="header" :class="$style.header">
         <div :class="$style.assets">
+            <img
+                :class="[$style.stars, $style.item]"
+                src="/images/header/stars_3.png"
+                alt="Планета Юпитер"
+                data-parallax="150"
+            />
+
+            <img
+                :class="[$style.stars, $style.item]"
+                src="/images/header/stars_2.png"
+                alt="Планета Юпитер"
+                data-parallax="100"
+            />
+
+            <!--            <img-->
+            <!--                :class="[$style.stars, $style.item]"-->
+            <!--                src="/images/header/stars.png"-->
+            <!--                alt="Планета Юпитер"-->
+            <!--                data-parallax="150"-->
+            <!--            />-->
+
             <img
                 :class="[$style.html, $style.item]"
                 src="/images/header/planets/html.svg"
@@ -69,25 +90,17 @@
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
         </div>
-    </header>
+    </Parallax>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Parallax from '@/classes/Parallax'
+import Parallax from '@/components/utils/Parallax.vue'
 
 export default defineComponent({
     name: 'Header',
-    data() {
-        return {
-            sceneParallax: {} as Parallax,
-        }
-    },
-    mounted() {
-        this.sceneParallax = new Parallax(this.$refs.header)
-    },
-    beforeUnmount() {
-        this.sceneParallax.destroy()
+    components: {
+        Parallax,
     },
 })
 </script>
@@ -111,6 +124,8 @@ export default defineComponent({
     overflow: hidden;
 
     & > .info {
+        position: relative;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -141,6 +156,16 @@ export default defineComponent({
             will-change: transform;
 
             transition: transform 100ms linear;
+        }
+
+        & > .stars {
+            object-fit: cover;
+
+            top: -10%;
+            left: -10%;
+
+            width: 120%;
+            height: 120%;
         }
 
         & > .html {
