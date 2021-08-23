@@ -5,14 +5,14 @@
                 :class="[$style.stars, $style.item]"
                 src="/images/header/stars/bottom.png"
                 alt="Планета Юпитер"
-                data-parallax="200"
+                data-parallax="140"
             />
 
             <img
                 :class="[$style.stars, $style.item]"
                 src="/images/header/stars/middle.png"
                 alt="Планета Юпитер"
-                data-parallax="150"
+                data-parallax="120"
             />
 
             <img
@@ -26,64 +26,64 @@
                 :class="[$style.html, $style.item]"
                 src="/images/header/planets/html.svg"
                 alt="Планета HTML"
-                data-parallax="3"
+                data-parallax="5"
             />
 
             <img
                 :class="[$style.css, $style.item]"
                 src="/images/header/planets/css.svg"
                 alt="Планета CSS"
-                data-parallax="2"
+                data-parallax="5"
             />
 
             <img
                 :class="[$style.node, $style.item]"
                 src="/images/header/planets/node.svg"
                 alt="Планета Node"
-                data-parallax="2.5"
+                data-parallax="5"
             />
 
             <img
                 :class="[$style.js, $style.item]"
                 src="/images/header/planets/js.svg"
                 alt="Планета JS"
-                data-parallax="2"
+                data-parallax="5"
             />
 
             <img
                 :class="[$style.earth, $style.item]"
                 src="/images/header/planets/earth.svg"
                 alt="Планета Земля"
-                data-parallax="4"
+                data-parallax="3.5"
             />
 
             <img
                 :class="[$style.saturn, $style.item]"
                 src="/images/header/planets/saturn.svg"
                 alt="Планета Сатурн"
-                data-parallax="5"
+                data-parallax="2.5"
             />
 
             <img
-                :class="[$style.jupiter, $style.item]"
-                src="/images/header/planets/jupiter.svg"
+                :class="[$style.uranus, $style.item]"
+                src="/images/header/planets/uranus.svg"
                 alt="Планета Юпитер"
-                data-parallax="5"
+                data-parallax="2.5"
             />
 
-            <!--            <img-->
-            <!--                :class="[$style.surface, $style.top, $style.item]"-->
-            <!--                src="/images/header/surfaces/top.svg"-->
-            <!--                alt="Верхняя часть поверхности"-->
-            <!--                data-parallax="9"-->
-            <!--            />-->
+            <img
+                :class="[$style.surface, $style.top, $style.item]"
+                src="/images/header/surfaces/top.svg"
+                alt="Планета Юпитер"
+                data-parallax="15"
+            />
 
-            <!--            <img-->
-            <!--                :class="[$style.surface, $style.bottom, $style.item]"-->
-            <!--                src="/images/header/surfaces/bottom.svg"-->
-            <!--                alt="Нижняя часть поверхности"-->
-            <!--                data-parallax="7"-->
-            <!--            />-->
+            <img
+                :class="[$style.surface, $style.bottom, $style.item]"
+                src="/images/header/surfaces/bottom.svg"
+                alt="Планета Юпитер"
+                data-parallax="10"
+            />
         </div>
 
         <div :class="$style.info" data-parallax="5">
@@ -118,7 +118,7 @@ export default defineComponent({
     background: linear-gradient(
         to bottom,
         rgba(51, 26, 48, 1) 0%,
-        rgba(87, 99, 171, 1) 100%
+        rgb(58, 66, 114) 100%
     );
 
     overflow: hidden;
@@ -174,7 +174,7 @@ export default defineComponent({
         }
 
         & > .css {
-            top: 48%;
+            top: 58%;
             left: 18%;
         }
 
@@ -188,8 +188,8 @@ export default defineComponent({
             right: 20%;
         }
 
-        & > .jupiter {
-            top: 37%;
+        & > .uranus {
+            top: 42%;
             left: 11%;
         }
 
@@ -210,11 +210,11 @@ export default defineComponent({
             width: 120%;
 
             &.top {
-                height: 140px;
+                height: 120px;
             }
 
             &.bottom {
-                height: 80px;
+                height: 70px;
             }
         }
     }
