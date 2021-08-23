@@ -71,19 +71,19 @@
                 data-parallax="5"
             />
 
-            <img
-                :class="[$style.surface, $style.top, $style.item]"
-                src="/images/header/surfaces/top.svg"
-                alt="Верхняя часть поверхности"
-                data-parallax="9"
-            />
+            <!--            <img-->
+            <!--                :class="[$style.surface, $style.top, $style.item]"-->
+            <!--                src="/images/header/surfaces/top.svg"-->
+            <!--                alt="Верхняя часть поверхности"-->
+            <!--                data-parallax="9"-->
+            <!--            />-->
 
-            <img
-                :class="[$style.surface, $style.bottom, $style.item]"
-                src="/images/header/surfaces/bottom.svg"
-                alt="Нижняя часть поверхности"
-                data-parallax="7"
-            />
+            <!--            <img-->
+            <!--                :class="[$style.surface, $style.bottom, $style.item]"-->
+            <!--                src="/images/header/surfaces/bottom.svg"-->
+            <!--                alt="Нижняя часть поверхности"-->
+            <!--                data-parallax="7"-->
+            <!--            />-->
         </div>
 
         <div :class="$style.info" data-parallax="5">
