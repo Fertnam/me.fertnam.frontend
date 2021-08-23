@@ -3,24 +3,24 @@
         <div :class="$style.assets">
             <img
                 :class="[$style.stars, $style.item]"
-                src="/images/header/stars_3.png"
+                src="/images/header/stars/bottom.png"
+                alt="Планета Юпитер"
+                data-parallax="200"
+            />
+
+            <img
+                :class="[$style.stars, $style.item]"
+                src="/images/header/stars/middle.png"
                 alt="Планета Юпитер"
                 data-parallax="150"
             />
 
             <img
                 :class="[$style.stars, $style.item]"
-                src="/images/header/stars_2.png"
+                src="/images/header/stars/top.png"
                 alt="Планета Юпитер"
                 data-parallax="100"
             />
-
-            <!--            <img-->
-            <!--                :class="[$style.stars, $style.item]"-->
-            <!--                src="/images/header/stars.png"-->
-            <!--                alt="Планета Юпитер"-->
-            <!--                data-parallax="150"-->
-            <!--            />-->
 
             <img
                 :class="[$style.html, $style.item]"
@@ -54,21 +54,21 @@
                 :class="[$style.earth, $style.item]"
                 src="/images/header/planets/earth.svg"
                 alt="Планета Земля"
-                data-parallax="6.5"
+                data-parallax="4"
             />
 
             <img
                 :class="[$style.saturn, $style.item]"
                 src="/images/header/planets/saturn.svg"
                 alt="Планета Сатурн"
-                data-parallax="8"
+                data-parallax="5"
             />
 
             <img
                 :class="[$style.jupiter, $style.item]"
                 src="/images/header/planets/jupiter.svg"
                 alt="Планета Юпитер"
-                data-parallax="7"
+                data-parallax="5"
             />
 
             <img
