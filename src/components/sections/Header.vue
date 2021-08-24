@@ -3,66 +3,71 @@
         <div :class="$style.assets">
             <ParallaxItem
                 :class="[$style.stars, $style.bottom, $style.item]"
-                :offset-coefficient="140"
-            />
-
-            <ParallaxItem
-                :class="[$style.stars, $style.middle, $style.item]"
                 :offset-coefficient="120"
             />
 
             <ParallaxItem
-                :class="[$style.stars, $style.top, $style.item]"
+                :class="[$style.stars, $style.middle, $style.item]"
                 :offset-coefficient="100"
             />
 
             <ParallaxItem
+                :class="[$style.stars, $style.top, $style.item]"
+                :offset-coefficient="80"
+            />
+
+            <ParallaxItem
                 :class="[$style.html, $style.item]"
-                :offset-coefficient="5"
+                :offset-coefficient="7"
             />
 
             <ParallaxItem
                 :class="[$style.css, $style.item]"
                 :offset-coefficient="5"
+                :gravity-y="1.6"
             />
 
             <ParallaxItem
                 :class="[$style.node, $style.item]"
-                :offset-coefficient="5"
+                :offset-coefficient="7"
             />
 
             <ParallaxItem
                 :class="[$style.js, $style.item]"
-                :offset-coefficient="5"
+                :offset-coefficient="4.2"
+                :gravity-y="2"
             />
 
             <ParallaxItem
                 :class="[$style.earth, $style.item]"
-                :offset-coefficient="3.5"
+                :offset-coefficient="2.5"
+                :gravity-y="2"
             />
 
             <ParallaxItem
                 :class="[$style.saturn, $style.item]"
-                :offset-coefficient="2.5"
+                :offset-coefficient="1.5"
+                :gravity-y="2.5"
             />
 
             <ParallaxItem
                 :class="[$style.uranus, $style.item]"
-                :offset-coefficient="2.5"
+                :offset-coefficient="1.5"
+                :gravity-y="2"
             />
 
             <ParallaxItem
                 :class="[$style.surface, $style.top, $style.item]"
-                :offset-coefficient="10"
+                :offset-coefficient="15"
             />
 
             <ParallaxItem
                 :class="[$style.surface, $style.bottom, $style.item]"
-                :offset-coefficient="6"
+                :offset-coefficient="10"
             />
         </div>
 
-        <ParallaxItem :class="$style.info" :offset-coefficient="4">
+        <ParallaxItem :class="$style.info" :offset-coefficient="7">
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
         </ParallaxItem>
