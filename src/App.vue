@@ -1,5 +1,5 @@
 <template>
-    <Header :class="$style.inner" />
+    <Header />
 
     <section :class="$style.section">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex magnam nemo
@@ -30,20 +30,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
-
-body {
-}
 
 .section {
     height: 100vh;
-    background-color: rebeccapurple;
-    position: relative;
 }
 </style>

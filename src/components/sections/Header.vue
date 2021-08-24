@@ -1,106 +1,84 @@
 <template>
     <Parallax tag="header" :class="$style.header">
         <div :class="$style.assets">
-            <img
-                :class="[$style.stars, $style.item]"
-                src="/images/header/stars/bottom.png"
-                alt="Планета Юпитер"
-                data-parallax="140"
+            <ParallaxItem
+                :class="[$style.stars, $style.bottom, $style.item]"
+                :offset-coefficient="140"
             />
 
-            <img
-                :class="[$style.stars, $style.item]"
-                src="/images/header/stars/middle.png"
-                alt="Планета Юпитер"
-                data-parallax="120"
+            <ParallaxItem
+                :class="[$style.stars, $style.middle, $style.item]"
+                :offset-coefficient="120"
             />
 
-            <img
-                :class="[$style.stars, $style.item]"
-                src="/images/header/stars/top.png"
-                alt="Планета Юпитер"
-                data-parallax="100"
+            <ParallaxItem
+                :class="[$style.stars, $style.top, $style.item]"
+                :offset-coefficient="100"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.html, $style.item]"
-                src="/images/header/planets/html.svg"
-                alt="Планета HTML"
-                data-parallax="5"
+                :offset-coefficient="5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.css, $style.item]"
-                src="/images/header/planets/css.svg"
-                alt="Планета CSS"
-                data-parallax="5"
+                :offset-coefficient="5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.node, $style.item]"
-                src="/images/header/planets/node.svg"
-                alt="Планета Node"
-                data-parallax="5"
+                :offset-coefficient="5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.js, $style.item]"
-                src="/images/header/planets/js.svg"
-                alt="Планета JS"
-                data-parallax="5"
+                :offset-coefficient="5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.earth, $style.item]"
-                src="/images/header/planets/earth.svg"
-                alt="Планета Земля"
-                data-parallax="3.5"
+                :offset-coefficient="3.5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.saturn, $style.item]"
-                src="/images/header/planets/saturn.svg"
-                alt="Планета Сатурн"
-                data-parallax="2.5"
+                :offset-coefficient="2.5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.uranus, $style.item]"
-                src="/images/header/planets/uranus.svg"
-                alt="Планета Юпитер"
-                data-parallax="2.5"
+                :offset-coefficient="2.5"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.surface, $style.top, $style.item]"
-                src="/images/header/surfaces/top.svg"
-                alt="Планета Юпитер"
-                data-parallax="15"
+                :offset-coefficient="10"
             />
 
-            <img
+            <ParallaxItem
                 :class="[$style.surface, $style.bottom, $style.item]"
-                src="/images/header/surfaces/bottom.svg"
-                alt="Планета Юпитер"
-                data-parallax="10"
+                :offset-coefficient="6"
             />
         </div>
 
-        <div :class="$style.info" data-parallax="5">
+        <ParallaxItem :class="$style.info" :offset-coefficient="4">
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
-        </div>
+        </ParallaxItem>
     </Parallax>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Parallax from '@/components/utils/Parallax.vue'
+import Parallax from '@/components/utils/Parallax/Parallax.vue'
+import ParallaxItem from '@/components/utils/Parallax/ParallaxItem.vue'
 
 export default defineComponent({
     name: 'Header',
     components: {
         Parallax,
+        ParallaxItem,
     },
 })
 </script>
@@ -117,10 +95,11 @@ export default defineComponent({
 
     background: linear-gradient(
         to bottom,
-        rgba(51, 26, 48, 1) 0%,
+        rgb(51, 26, 48) 0%,
         rgb(58, 66, 114) 100%
     );
 
+    user-select: none;
     overflow: hidden;
 
     & > .info {
@@ -131,15 +110,10 @@ export default defineComponent({
         align-items: center;
 
         font-family: 'Ranchers', cursive;
-        letter-spacing: 5px;
         font-size: 3.5em;
-        font-weight: bold;
+        letter-spacing: 5px;
 
         color: #fff;
-
-        transition: transform 100ms linear;
-
-        user-select: none;
 
         & > .name {
             margin-bottom: 10px;
@@ -149,58 +123,91 @@ export default defineComponent({
     & > .assets {
         & > .item {
             position: absolute;
-
-            pointer-events: none;
-            user-select: none;
-
-            will-change: transform;
-
-            transition: transform 100ms linear;
         }
 
         & > .stars {
-            object-fit: cover;
-
             top: -10%;
             left: -10%;
 
             width: 120%;
             height: 120%;
+
+            background-size: cover;
+
+            &.bottom {
+                background-image: url('/images/header/stars/bottom.png');
+            }
+
+            &.middle {
+                background-image: url('/images/header/stars/middle.png');
+            }
+
+            &.top {
+                background-image: url('/images/header/stars/top.png');
+            }
         }
 
         & > .html {
             top: 8%;
             left: 4%;
+
+            &:before {
+                content: url('/images/header/planets/html.svg');
+            }
         }
 
         & > .css {
             top: 58%;
             left: 18%;
+
+            &:before {
+                content: url('/images/header/planets/css.svg');
+            }
         }
 
         & > .node {
             top: 14%;
             right: 7%;
+
+            &:before {
+                content: url('/images/header/planets/node.svg');
+            }
         }
 
         & > .js {
             top: 55%;
             right: 20%;
+
+            &:before {
+                content: url('/images/header/planets/js.svg');
+            }
         }
 
         & > .uranus {
             top: 42%;
             left: 11%;
+
+            &:before {
+                content: url('/images/header/planets/uranus.svg');
+            }
         }
 
         & > .earth {
             top: 20%;
             left: 33%;
+
+            &:before {
+                content: url('/images/header/planets/earth.svg');
+            }
         }
 
         & > .saturn {
             top: 28%;
             right: 33%;
+
+            &:before {
+                content: url('/images/header/planets/saturn.svg');
+            }
         }
 
         & > .surface {
@@ -211,10 +218,12 @@ export default defineComponent({
 
             &.top {
                 height: 120px;
+                background-image: url('/images/header/surfaces/top.svg');
             }
 
             &.bottom {
                 height: 70px;
+                background-image: url('/images/header/surfaces/bottom.svg');
             }
         }
     }
