@@ -1,89 +1,104 @@
 <template>
-    <Parallax tag="header" :class="$style.header">
+    <KinesisContainer tag="header" :class="$style.header">
         <div :class="$style.assets">
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.stars, $style.bottom, $style.item]"
+                :strength="5"
                 :offset-coefficient="120"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.stars, $style.middle, $style.item]"
+                :strength="8"
                 :offset-coefficient="100"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.stars, $style.top, $style.item]"
+                :strength="11"
                 :offset-coefficient="80"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.html, $style.item]"
+                :strength="25"
                 :offset-coefficient="7"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.css, $style.item]"
+                :strength="25"
                 :offset-coefficient="5"
                 :gravity-y="1.6"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.node, $style.item]"
+                :strength="25"
                 :offset-coefficient="7"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.js, $style.item]"
+                :strength="25"
                 :offset-coefficient="4.2"
                 :gravity-y="2"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.earth, $style.item]"
+                :strength="15"
                 :offset-coefficient="2.5"
                 :gravity-y="2"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.saturn, $style.item]"
+                :strength="15"
                 :offset-coefficient="1.5"
                 :gravity-y="2.5"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.uranus, $style.item]"
+                :strength="15"
                 :offset-coefficient="1.5"
                 :gravity-y="2"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.surface, $style.top, $style.item]"
+                :strength="15"
                 :offset-coefficient="15"
             />
 
-            <ParallaxItem
+            <KinesisElement
                 :class="[$style.surface, $style.bottom, $style.item]"
+                :strength="20"
                 :offset-coefficient="10"
             />
         </div>
 
-        <ParallaxItem :class="$style.info" :offset-coefficient="7">
+        <KinesisElement
+            :class="$style.info"
+            :strength="30"
+            :offset-coefficient="7"
+        >
             <span :class="$style.name">Fertnam</span>
             <span :class="$style.position">Web Developer</span>
-        </ParallaxItem>
-    </Parallax>
+        </KinesisElement>
+    </KinesisContainer>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import Parallax from '@/components/utils/Parallax/Parallax.vue'
-import ParallaxItem from '@/components/utils/Parallax/ParallaxItem.vue'
+import { KinesisContainer, KinesisElement } from 'vue-kinesis'
 
 export default defineComponent({
     name: 'Header',
     components: {
-        Parallax,
-        ParallaxItem,
+        KinesisContainer,
+        KinesisElement,
     },
 })
 </script>
