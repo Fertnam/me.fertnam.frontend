@@ -1,91 +1,49 @@
 <template>
-    <KinesisContainer tag="header" :class="$style.header">
+    <KinesisContainer :class="$style.header" tag="header" :duration="650">
         <div :class="$style.assets">
             <KinesisElement
-                :class="[$style.stars, $style.bottom, $style.item]"
-                :strength="5"
-                :offset-coefficient="120"
+                :class="[$style.stars, $style.bottom]"
+                :strength="4"
             />
 
             <KinesisElement
-                :class="[$style.stars, $style.middle, $style.item]"
-                :strength="8"
-                :offset-coefficient="100"
+                :class="[$style.stars, $style.middle]"
+                :strength="7"
             />
 
             <KinesisElement
-                :class="[$style.stars, $style.top, $style.item]"
-                :strength="11"
-                :offset-coefficient="80"
+                :class="[$style.stars, $style.top]"
+                :strength="10"
+            />
+
+            <KinesisElement :class="$style.html" :strength="25" />
+
+            <KinesisElement :class="$style.css" :strength="20" />
+
+            <KinesisElement :class="$style.node" :strength="25" />
+
+            <KinesisElement :class="$style.js" :strength="18" />
+
+            <KinesisElement :class="$style.earth" :strength="17" />
+
+            <KinesisElement :class="$style.saturn" :strength="15" />
+
+            <KinesisElement :class="$style.uranus" :strength="14" />
+
+            <KinesisElement
+                :class="[$style.surface, $style.top]"
+                :strength="10"
             />
 
             <KinesisElement
-                :class="[$style.html, $style.item]"
-                :strength="25"
-                :offset-coefficient="7"
-            />
-
-            <KinesisElement
-                :class="[$style.css, $style.item]"
-                :strength="25"
-                :offset-coefficient="5"
-                :gravity-y="1.6"
-            />
-
-            <KinesisElement
-                :class="[$style.node, $style.item]"
-                :strength="25"
-                :offset-coefficient="7"
-            />
-
-            <KinesisElement
-                :class="[$style.js, $style.item]"
-                :strength="25"
-                :offset-coefficient="4.2"
-                :gravity-y="2"
-            />
-
-            <KinesisElement
-                :class="[$style.earth, $style.item]"
-                :strength="15"
-                :offset-coefficient="2.5"
-                :gravity-y="2"
-            />
-
-            <KinesisElement
-                :class="[$style.saturn, $style.item]"
-                :strength="15"
-                :offset-coefficient="1.5"
-                :gravity-y="2.5"
-            />
-
-            <KinesisElement
-                :class="[$style.uranus, $style.item]"
-                :strength="15"
-                :offset-coefficient="1.5"
-                :gravity-y="2"
-            />
-
-            <KinesisElement
-                :class="[$style.surface, $style.top, $style.item]"
-                :strength="15"
-                :offset-coefficient="15"
-            />
-
-            <KinesisElement
-                :class="[$style.surface, $style.bottom, $style.item]"
-                :strength="20"
-                :offset-coefficient="10"
+                :class="[$style.surface, $style.bottom]"
+                :strength="13"
             />
         </div>
 
-        <KinesisElement
-            :class="$style.info"
-            :strength="30"
-            :offset-coefficient="7"
-        >
-            <span :class="$style.name">Fertnam</span>
-            <span :class="$style.position">Web Developer</span>
+        <KinesisElement :class="$style.info" :strength="30">
+            <div :class="$style.name">Fertnam</div>
+            <div :class="$style.position">Web Developer</div>
         </KinesisElement>
     </KinesisContainer>
 </template>
@@ -125,12 +83,10 @@ export default defineComponent({
     & > .info {
         position: relative;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
         font-family: 'Ranchers', cursive;
         font-size: 3.5em;
+
+        text-align: center;
         letter-spacing: 5px;
 
         color: #fff;
@@ -141,11 +97,9 @@ export default defineComponent({
     }
 
     & > .assets {
-        & > .item {
-            position: absolute;
-        }
-
         & > .stars {
+            position: absolute;
+
             top: -10%;
             left: -10%;
 
@@ -168,6 +122,8 @@ export default defineComponent({
         }
 
         & > .html {
+            position: absolute;
+
             top: 8%;
             left: 4%;
 
@@ -177,6 +133,8 @@ export default defineComponent({
         }
 
         & > .css {
+            position: absolute;
+
             top: 58%;
             left: 18%;
 
@@ -186,6 +144,8 @@ export default defineComponent({
         }
 
         & > .node {
+            position: absolute;
+
             top: 14%;
             right: 7%;
 
@@ -195,6 +155,8 @@ export default defineComponent({
         }
 
         & > .js {
+            position: absolute;
+
             top: 55%;
             right: 20%;
 
@@ -204,6 +166,8 @@ export default defineComponent({
         }
 
         & > .uranus {
+            position: absolute;
+
             top: 42%;
             left: 11%;
 
@@ -213,6 +177,8 @@ export default defineComponent({
         }
 
         & > .earth {
+            position: absolute;
+
             top: 20%;
             left: 33%;
 
@@ -222,6 +188,8 @@ export default defineComponent({
         }
 
         & > .saturn {
+            position: absolute;
+
             top: 28%;
             right: 33%;
 
@@ -231,7 +199,9 @@ export default defineComponent({
         }
 
         & > .surface {
-            bottom: -2%;
+            position: absolute;
+
+            bottom: -3%;
             left: -10%;
 
             width: 120%;
@@ -242,7 +212,7 @@ export default defineComponent({
             }
 
             &.bottom {
-                height: 70px;
+                height: 75px;
                 background-image: url('/images/header/surfaces/bottom.svg');
             }
         }
