@@ -206,6 +206,9 @@ export default defineComponent({
 
             width: 120%;
 
+            background-repeat: no-repeat;
+            background-size: 100%;
+
             &.top {
                 height: 120px;
                 background-image: url('/images/header/surfaces/top.svg');
