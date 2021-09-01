@@ -71,11 +71,7 @@ export default defineComponent({
 
     height: 100vh;
 
-    background: linear-gradient(
-        to bottom,
-        rgb(51, 26, 48) 0%,
-        rgb(58, 66, 114) 100%
-    );
+    background: var(--purple-blue-gradient);
 
     user-select: none;
     overflow: hidden;
@@ -89,7 +85,7 @@ export default defineComponent({
         text-align: center;
         letter-spacing: 5px;
 
-        color: #fff;
+        color: var(--white);
 
         & > .name {
             margin-bottom: 10px;
