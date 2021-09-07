@@ -9,8 +9,15 @@
 :root {
     /* Цвета */
     --white: #fff;
+
     --purple: rgb(51, 26, 48);
+    --purple-dark: #21081e;
+    --purple-light: #996192;
+
     --blue: rgb(58, 66, 114);
+    --blue-light: #728597;
+
+    --grey: #e5e5e5;
 
     /* Градиенты */
     --purple-blue-gradient: linear-gradient(
@@ -30,6 +37,7 @@
 
 body {
     font-family: 'Andika', sans-serif;
+    letter-spacing: 1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
