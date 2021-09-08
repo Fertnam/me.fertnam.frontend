@@ -5,19 +5,30 @@
 
             <div :class="$style.content">
                 <div :class="$style.info">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                    atque commodi dolor eligendi eum, exercitationem facere
-                    harum iste, modi nemo officiis possimus quam quas, sint sit
-                    ut velit veritatis. Ab aperiam aut, autem cupiditate debitis
-                    deserunt, earum eius enim hic illum nemo officia quasi
-                    quibusdam sed voluptate? Accusantium at aut cupiditate
-                    doloremque ducimus earum eos est ex expedita illo impedit
-                    incidunt ipsum itaque laudantium magnam nam porro quae quam
-                    qui, ratione reiciendis rerum sapiente sit tempora tempore
-                    veniam voluptatem? Dolore fugit hic id ipsum labore
-                    necessitatibus tempore temporibus ut vel voluptates!
-                    Delectus distinctio hic ipsam magnam, modi quam voluptate
-                    voluptates!
+                    <div :class="$style.avatar">
+                        <img
+                            :class="$style.img"
+                            src="/images/about_me/avatar.png"
+                            alt="Аватар"
+                        />
+                    </div>
+
+                    <div :class="$style.description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Ad atque commodi dolor eligendi eum,
+                        exercitationem facere harum iste, modi nemo officiis
+                        possimus quam quas, sint sit ut velit veritatis. Ab
+                        aperiam aut, autem cupiditate debitis deserunt, earum
+                        eius enim hic illum nemo officia quasi quibusdam sed
+                        voluptate? Accusantium at aut cupiditate doloremque
+                        ducimus earum eos est ex expedita illo impedit incidunt
+                        ipsum itaque laudantium magnam nam porro quae quam qui,
+                        ratione reiciendis rerum sapiente sit tempora tempore
+                        veniam voluptatem? Dolore fugit hic id ipsum labore
+                        necessitatibus tempore temporibus ut vel voluptates!
+                        Delectus distinctio hic ipsam magnam, modi quam
+                        voluptate voluptates!
+                    </div>
                 </div>
 
                 <div :class="$style.skills">
@@ -29,7 +40,7 @@
                         JavaScript
                     </Progress>
 
-                    <Progress :class="$style.item" :value="70">
+                    <Progress :class="$style.item" :value="65">
                         TypeScript
                     </Progress>
 
@@ -100,6 +111,23 @@ export default defineComponent({
             & > .info {
                 flex: 1 1 0;
                 line-height: 1.5;
+
+                text-align: center;
+
+                & > .avatar {
+                    height: 280px;
+                    margin-bottom: 20px;
+
+                    user-select: none;
+                    pointer-events: none;
+
+                    & > .img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: contain;
+                    }
+                }
             }
 
             & > .skills {
