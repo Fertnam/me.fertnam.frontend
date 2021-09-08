@@ -2,7 +2,7 @@
     <div :class="$style.progress">
         <div :class="$style.header">
             <span :class="$style.title">
-                <slot name="title" />
+                <slot />
             </span>
 
             <span :class="$style.value">{{ value }}%</span>
@@ -44,13 +44,18 @@ export default defineComponent({
     & > .scale {
         height: 20px;
 
-        background-color: #1a0e18;
+        background-color: var(--purple-300);
         border-radius: 10px;
 
         & > .value {
             height: 100%;
 
-            background-color: #874e81;
+            background: linear-gradient(
+                to right,
+                var(--purple-50) 0%,
+                var(--pink-100) 100%
+            );
+
             border-radius: inherit;
         }
     }

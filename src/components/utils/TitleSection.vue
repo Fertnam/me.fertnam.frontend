@@ -24,6 +24,9 @@ export default defineComponent({
     padding-bottom: 15px;
 
     font-size: 2.5em;
+    opacity: 80%;
+
+    user-select: none;
 
     &:after {
         position: absolute;
@@ -33,7 +36,7 @@ export default defineComponent({
         width: 100%;
         height: 2px;
 
-        background-color: #edcce9;
+        background-color: var(--pink-50);
 
         content: '';
     }

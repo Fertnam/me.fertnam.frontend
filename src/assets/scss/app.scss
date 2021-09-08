@@ -9,22 +9,15 @@
 :root {
     /* Цвета */
     --white: #fff;
+    --blue: #3A4272;
 
-    --purple: rgb(51, 26, 48);
-    --purple-dark: #21081e;
-    --purple-light: #996192;
+    --pink-50: #f2dff0;
+    --pink-100: #9a737d;
 
-    --blue: rgb(58, 66, 114);
-    --blue-light: #728597;
-
-    --grey: #e5e5e5;
-
-    /* Градиенты */
-    --purple-blue-gradient: linear-gradient(
-            to bottom,
-            var(--purple) 0%,
-            var(--blue) 100%
-    );
+    --purple-50: #817194;
+    --purple-100: #331A30;
+    --purple-200: #261524;
+    --purple-300: #140b13;
 
     /* Длительность анимации */
     --transition-duration: 350ms;
@@ -34,6 +27,10 @@
 * {
     box-sizing: border-box;
 }
+
+//html {
+//    font-size: 18px;
+//}
 
 body {
     font-family: 'Andika', sans-serif;

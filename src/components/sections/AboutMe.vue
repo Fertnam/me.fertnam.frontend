@@ -22,43 +22,41 @@
 
                 <div :class="$style.skills">
                     <Progress :class="$style.item" :value="90">
-                        <template #title>HTML / CSS</template>
+                        HTML / CSS
                     </Progress>
 
                     <Progress :class="$style.item" :value="80">
-                        <template #title>JavaScript</template>
+                        JavaScript
                     </Progress>
 
                     <Progress :class="$style.item" :value="70">
-                        <template #title>TypeScript</template>
+                        TypeScript
                     </Progress>
 
                     <Progress :class="$style.item" :value="80">
-                        <template #title>Vue.js</template>
+                        Vue.js
                     </Progress>
 
                     <Progress :class="$style.item" :value="75">
-                        <template #title>Nuxt.js</template>
+                        Nuxt.js
                     </Progress>
 
                     <Progress :class="$style.item" :value="30">
-                        <template #title>Node.js</template>
+                        Node.js
                     </Progress>
 
-                    <Progress :class="$style.item" :value="70">
-                        <template #title>PHP</template>
-                    </Progress>
+                    <Progress :class="$style.item" :value="70"> PHP </Progress>
 
                     <Progress :class="$style.item" :value="50">
-                        <template #title>Laravel</template>
+                        Laravel
                     </Progress>
 
                     <Progress :class="$style.item" :value="75">
-                        <template #title>Базы данных</template>
+                        Базы данных
                     </Progress>
 
                     <Progress :class="$style.item" :value="100">
-                        <template #title>Желание учиться</template>
+                        Желание учиться
                     </Progress>
                 </div>
             </div>
@@ -87,8 +85,8 @@ export default defineComponent({
     padding: 40px 0 80px;
     min-height: 100vh;
 
-    background-color: #291627;
-    color: #edcce9;
+    color: var(--pink-50);
+    background-color: var(--purple-200);
 
     & > .container {
         & > .title {
