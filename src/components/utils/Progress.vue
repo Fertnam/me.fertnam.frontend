@@ -36,6 +36,8 @@ export default defineComponent({
 
         margin-bottom: 10px;
 
+        user-select: none;
+
         & > .title {
             font-weight: bold;
         }
