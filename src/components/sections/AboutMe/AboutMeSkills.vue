@@ -18,20 +18,21 @@
 
         <Progress :class="$style.item" :value="75">Базы данных</Progress>
 
-        <Progress :class="$style.item" :value="100">Желание учиться</Progress>
+        <Progress :class="$style.item" :value="null">Желание учиться</Progress>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 import Progress from '@/components/utils/Progress.vue'
 
-export default defineComponent({
+@Options({
     name: 'AboutMeSkills',
     components: {
         Progress,
     },
 })
+export default class AboutMeSkills extends Vue {}
 </script>
 
 <style lang="scss" module>

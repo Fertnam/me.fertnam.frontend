@@ -5,17 +5,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options, Prop } from 'vue-property-decorator'
 
-export default defineComponent({
+@Options({
     name: 'TitleSection',
-    props: {
-        as: {
-            type: String,
-            default: 'h2',
-        },
-    },
 })
+export default class TitleSection extends Vue {
+    @Prop({ type: String, default: 'h2' }) readonly as!: string
+}
 </script>
 
 <style lang="scss" module>

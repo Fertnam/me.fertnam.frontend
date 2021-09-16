@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.info">
+    <div :class="$style.personal">
         <div :class="$style.avatar">
             <img
                 :class="$style.img"
@@ -25,15 +25,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 
-export default defineComponent({
-    name: 'AboutMeInfo',
+@Options({
+    name: 'AboutMePersonal',
 })
+export default class AboutMePersonal extends Vue {}
 </script>
 
 <style lang="scss" module>
-.info {
+.personal {
     text-align: center;
 
     & > .avatar {

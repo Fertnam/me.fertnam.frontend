@@ -4,7 +4,7 @@
             <TitleSection :class="$style.title">Обо мне</TitleSection>
 
             <div :class="$style.content">
-                <AboutMeInfo :class="$style.info" />
+                <AboutMePersonal :class="$style.personal" />
                 <AboutMeSkills :class="$style.skills" />
             </div>
         </Container>
@@ -12,21 +12,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 import Container from '@/components/utils/Container.vue'
 import TitleSection from '@/components/utils/TitleSection.vue'
-import AboutMeInfo from '@/components/sections/AboutMe/AboutMeInfo.vue'
+import AboutMePersonal from '@/components/sections/AboutMe/AboutMePersonal.vue'
 import AboutMeSkills from '@/components/sections/AboutMe/AboutMeSkills.vue'
 
-export default defineComponent({
+@Options({
     name: 'AboutMe',
     components: {
         Container,
         TitleSection,
-        AboutMeInfo,
+        AboutMePersonal,
         AboutMeSkills,
     },
 })
+export default class AboutMe extends Vue {}
 </script>
 
 <style lang="scss" module>
@@ -46,7 +47,7 @@ export default defineComponent({
             display: flex;
             gap: 100px;
 
-            & > .info,
+            & > .personal,
             & > .skills {
                 flex: 1 1 0;
             }

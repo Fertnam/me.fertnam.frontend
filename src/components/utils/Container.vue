@@ -5,11 +5,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 
-export default defineComponent({
+@Options({
     name: 'Container',
 })
+export default class Container extends Vue {}
 </script>
 
 <style lang="scss" module>

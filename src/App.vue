@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 import Header from '@/components/sections/Header.vue'
 import AboutMe from '@/components/sections/AboutMe/AboutMe.vue'
 import Footer from '@/components/sections/Footer.vue'
 
-export default defineComponent({
+@Options({
     name: 'App',
     components: {
         Header,
@@ -18,4 +18,5 @@ export default defineComponent({
         Footer,
     },
 })
+export default class App extends Vue {}
 </script>

@@ -5,27 +5,36 @@
                 <slot />
             </span>
 
-            <span :class="$style.value">{{ value }}%</span>
+            <span :class="$style.value" v-text="titleValue" />
         </div>
 
         <div :class="$style.scale">
-            <div :class="$style.value" :style="`width: ${value}%`" />
+            <div :class="$style.value" :style="`width: ${scaleValue}%`" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options, Prop } from 'vue-property-decorator'
 
-export default defineComponent({
+@Options({
     name: 'Progress',
-    props: {
-        value: {
-            type: Number,
-            default: 0,
-        },
-    },
 })
+export default class Progress extends Vue {
+    @Prop({ type: Number, default: 0 }) readonly value!: number | null
+
+    get isInfinite(): boolean {
+        return this.value === null
+    }
+
+    get titleValue(): string {
+        return this.isInfinite ? '∞' : `${this.value}%`
+    }
+
+    get scaleValue(): number {
+        return this.isInfinite ? 100 : (this.value as number)
+    }
+}
 </script>
 
 <style lang="scss" module>

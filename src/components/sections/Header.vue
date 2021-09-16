@@ -49,16 +49,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 import { KinesisContainer, KinesisElement } from 'vue-kinesis'
 
-export default defineComponent({
+@Options({
     name: 'Header',
     components: {
         KinesisContainer,
         KinesisElement,
     },
 })
+export default class Header extends Vue {}
 </script>
 
 <style lang="scss" module>

@@ -1,21 +1,21 @@
-# me.fertnam
+# me.fertnam.frontend
 
-## Project setup
+## Установка зависимостей
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Сборка на продакшн
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Проверка через линтер
 ```
 npm run lint
 ```

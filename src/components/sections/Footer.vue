@@ -7,15 +7,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Vue, Options } from 'vue-property-decorator'
 import Container from '@/components/utils/Container.vue'
 
-export default defineComponent({
+@Options({
     name: 'Footer',
-    components: {
-        Container,
-    },
+    components: { Container },
 })
+export default class Footer extends Vue {}
 </script>
 
 <style lang="scss" module>
