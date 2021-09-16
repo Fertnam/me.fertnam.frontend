@@ -1,36 +1,23 @@
 <template>
     <div :class="$style.personal">
         <div :class="$style.avatar">
-            <img
-                :class="$style.img"
-                src="/images/about_me/avatar.png"
-                alt="Аватар"
-            />
+            <img :class="$style.img" :src="personal.avatar" alt="Аватар" />
         </div>
 
-        <div :class="$style.description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque
-            commodi dolor eligendi eum, exercitationem facere harum iste, modi
-            nemo officiis possimus quam quas, sint sit ut velit veritatis. Ab
-            aperiam aut, autem cupiditate debitis deserunt, earum eius enim hic
-            illum nemo officia quasi quibusdam sed voluptate? Accusantium at aut
-            cupiditate doloremque ducimus earum eos est ex expedita illo impedit
-            incidunt ipsum itaque laudantium magnam nam porro quae quam qui,
-            ratione reiciendis rerum sapiente sit tempora tempore veniam
-            voluptatem? Dolore fugit hic id ipsum labore necessitatibus tempore
-            temporibus ut vel voluptates! Delectus distinctio hic ipsam magnam,
-            modi quam voluptate voluptates!
-        </div>
+        <div :class="$style.description" v-text="personal.description" />
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-property-decorator'
+import { Vue, Options, Inject } from 'vue-property-decorator'
+import Personal from '@/types/Personal'
 
 @Options({
     name: 'AboutMePersonal',
 })
-export default class AboutMePersonal extends Vue {}
+export default class AboutMePersonal extends Vue {
+    @Inject() personal!: Personal
+}
 </script>
 
 <style lang="scss" module>

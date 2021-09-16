@@ -1,30 +1,20 @@
 <template>
     <div :class="$style.skills">
-        <Progress :class="$style.item" :value="90"> HTML / CSS </Progress>
-
-        <Progress :class="$style.item" :value="80">JavaScript</Progress>
-
-        <Progress :class="$style.item" :value="65">TypeScript</Progress>
-
-        <Progress :class="$style.item" :value="80">Vue.js</Progress>
-
-        <Progress :class="$style.item" :value="75">Nuxt.js</Progress>
-
-        <Progress :class="$style.item" :value="30">Node.js</Progress>
-
-        <Progress :class="$style.item" :value="70">PHP</Progress>
-
-        <Progress :class="$style.item" :value="50">Laravel</Progress>
-
-        <Progress :class="$style.item" :value="75">Базы данных</Progress>
-
-        <Progress :class="$style.item" :value="null">Желание учиться</Progress>
+        <Progress
+            v-for="item in skills"
+            :key="item.id"
+            :class="$style.item"
+            :value="item.progress"
+        >
+            {{ item.name }}
+        </Progress>
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-property-decorator'
+import { Vue, Options, Inject } from 'vue-property-decorator'
 import Progress from '@/components/utils/Progress.vue'
+import Skill from '@/types/Skill'
 
 @Options({
     name: 'AboutMeSkills',
@@ -32,7 +22,9 @@ import Progress from '@/components/utils/Progress.vue'
         Progress,
     },
 })
-export default class AboutMeSkills extends Vue {}
+export default class AboutMeSkills extends Vue {
+    @Inject() skills!: Skill[]
+}
 </script>
 
 <style lang="scss" module>

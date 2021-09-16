@@ -1,5 +1,5 @@
 import { App } from 'vue'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
     install(app: App): void {
@@ -9,7 +9,7 @@ export default {
             })
         }
 
-        // app.config.globalProperties.$axios = axios
+        app.config.globalProperties.$axios = axios
         app.config.globalProperties.$timeout = timeout
     },
 }

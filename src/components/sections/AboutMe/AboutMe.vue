@@ -12,11 +12,13 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options } from 'vue-property-decorator'
+import { Vue, Options, Provide } from 'vue-property-decorator'
 import Container from '@/components/utils/Container.vue'
 import TitleSection from '@/components/utils/TitleSection.vue'
 import AboutMePersonal from '@/components/sections/AboutMe/AboutMePersonal.vue'
 import AboutMeSkills from '@/components/sections/AboutMe/AboutMeSkills.vue'
+import Personal from '@/types/Personal'
+import Skill from '@/types/Skill'
 
 @Options({
     name: 'AboutMe',
@@ -27,7 +29,19 @@ import AboutMeSkills from '@/components/sections/AboutMe/AboutMeSkills.vue'
         AboutMeSkills,
     },
 })
-export default class AboutMe extends Vue {}
+export default class AboutMe extends Vue {
+    @Provide({ reactive: true }) personal: Personal = {} as Personal
+    @Provide({ reactive: true }) skills: Skill[] = [] as Skill[]
+
+    async beforeCreate(): Promise<void> {
+        try {
+            this.personal = await Personal.get()
+            this.skills = await Skill.all()
+        } catch (error) {
+            console.error(error)
+        }
+    }
+}
 </script>
 
 <style lang="scss" module>
