@@ -17,8 +17,8 @@ import Container from '@/components/utils/Container.vue'
 import TitleSection from '@/components/utils/TitleSection.vue'
 import AboutMePersonal from '@/components/sections/AboutMe/AboutMePersonal.vue'
 import AboutMeSkills from '@/components/sections/AboutMe/AboutMeSkills.vue'
-import Personal from '@/types/Personal'
-import Skill from '@/types/Skill'
+import Personal from '@/models/Personal'
+import Skill from '@/models/Skill'
 
 @Options({
     name: 'AboutMe',
@@ -30,13 +30,14 @@ import Skill from '@/types/Skill'
     },
 })
 export default class AboutMe extends Vue {
-    @Provide({ reactive: true }) personal: Personal = {} as Personal
-    @Provide({ reactive: true }) skills: Skill[] = [] as Skill[]
+    @Provide({ reactive: true }) personal = {} as Personal
+    @Provide({ reactive: true }) skills = [] as Skill[]
 
+    // noinspection JSUnusedGlobalSymbols
     async beforeCreate(): Promise<void> {
         try {
-            this.personal = await Personal.get()
-            this.skills = await Skill.all()
+            this.personal = await this.$services.personal.get()
+            this.skills = await this.$services.skills.all()
         } catch (error) {
             console.error(error)
         }
@@ -59,7 +60,13 @@ export default class AboutMe extends Vue {
 
         & > .content {
             display: flex;
-            gap: 100px;
+            flex-wrap: wrap;
+
+            gap: 50px 100px;
+
+            @include md {
+                flex-wrap: nowrap;
+            }
 
             & > .personal,
             & > .skills {

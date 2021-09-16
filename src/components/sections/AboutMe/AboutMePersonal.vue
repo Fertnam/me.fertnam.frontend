@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { Vue, Options, Inject } from 'vue-property-decorator'
-import Personal from '@/types/Personal'
+import Personal from '@/models/Personal'
 
 @Options({
     name: 'AboutMePersonal',

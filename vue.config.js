@@ -11,6 +11,9 @@ module.exports = {
     css: {
         requireModuleExtension: true,
         loaderOptions: {
+            sass: {
+                prependData: '@import "@/assets/scss/utils";',
+            },
             css: {
                 localsConvention: 'camelCase',
                 importLoaders: 3,

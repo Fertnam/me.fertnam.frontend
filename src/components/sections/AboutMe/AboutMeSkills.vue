@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Vue, Options, Inject } from 'vue-property-decorator'
 import Progress from '@/components/utils/Progress.vue'
-import Skill from '@/types/Skill'
+import Skill from '@/models/Skill'
 
 @Options({
     name: 'AboutMeSkills',

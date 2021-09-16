@@ -1,3 +1,4 @@
+<!--suppress JSUnresolvedVariable -->
 <template>
     <KinesisContainer :class="$style.header" tag="header" :duration="650">
         <div :class="$style.assets">
@@ -85,7 +86,7 @@ export default class Header extends Vue {}
         position: relative;
 
         font-family: 'Ranchers', cursive;
-        font-size: 3.5em;
+        font-size: 2.5em;
 
         text-align: center;
         letter-spacing: 5px;
@@ -93,6 +94,10 @@ export default class Header extends Vue {}
         color: var(--white);
 
         opacity: 95%;
+
+        @include lg {
+            font-size: 3.5em;
+        }
 
         & > .name {
             margin-bottom: 10px;
@@ -124,83 +129,6 @@ export default class Header extends Vue {}
             }
         }
 
-        & > .html {
-            position: absolute;
-
-            top: 8%;
-            left: 4%;
-
-            &:before {
-                content: url('/images/header/planets/html.svg');
-            }
-        }
-
-        & > .css {
-            position: absolute;
-
-            top: 58%;
-            left: 18%;
-
-            &:before {
-                content: url('/images/header/planets/css.svg');
-            }
-        }
-
-        & > .node {
-            position: absolute;
-
-            top: 14%;
-            right: 7%;
-
-            &:before {
-                content: url('/images/header/planets/node.svg');
-            }
-        }
-
-        & > .js {
-            position: absolute;
-
-            top: 55%;
-            right: 20%;
-
-            &:before {
-                content: url('/images/header/planets/js.svg');
-            }
-        }
-
-        & > .uranus {
-            position: absolute;
-
-            top: 42%;
-            left: 11%;
-
-            &:before {
-                content: url('/images/header/planets/uranus.svg');
-            }
-        }
-
-        & > .earth {
-            position: absolute;
-
-            top: 20%;
-            left: 33%;
-
-            &:before {
-                content: url('/images/header/planets/earth.svg');
-            }
-        }
-
-        & > .saturn {
-            position: absolute;
-
-            top: 28%;
-            right: 33%;
-
-            &:before {
-                content: url('/images/header/planets/saturn.svg');
-            }
-        }
-
         & > .surface {
             position: absolute;
 
@@ -220,6 +148,85 @@ export default class Header extends Vue {}
             &.bottom {
                 height: 75px;
                 background-image: url('/images/header/surfaces/bottom.svg');
+            }
+        }
+
+        @include lg {
+            & > .html {
+                position: absolute;
+
+                top: 8%;
+                left: 4%;
+
+                &:before {
+                    content: url('/images/header/planets/html.svg');
+                }
+            }
+
+            & > .css {
+                position: absolute;
+
+                top: 58%;
+                left: 18%;
+
+                &:before {
+                    content: url('/images/header/planets/css.svg');
+                }
+            }
+
+            & > .node {
+                position: absolute;
+
+                top: 14%;
+                right: 7%;
+
+                &:before {
+                    content: url('/images/header/planets/node.svg');
+                }
+            }
+
+            & > .js {
+                position: absolute;
+
+                top: 55%;
+                right: 20%;
+
+                &:before {
+                    content: url('/images/header/planets/js.svg');
+                }
+            }
+
+            & > .uranus {
+                position: absolute;
+
+                top: 42%;
+                left: 11%;
+
+                &:before {
+                    content: url('/images/header/planets/uranus.svg');
+                }
+            }
+
+            & > .earth {
+                position: absolute;
+
+                top: 20%;
+                left: 33%;
+
+                &:before {
+                    content: url('/images/header/planets/earth.svg');
+                }
+            }
+
+            & > .saturn {
+                position: absolute;
+
+                top: 28%;
+                right: 33%;
+
+                &:before {
+                    content: url('/images/header/planets/saturn.svg');
+                }
             }
         }
     }
