@@ -24,7 +24,7 @@ export default defineComponent({
     padding-bottom: 15px;
 
     font-size: 2.5em;
-    opacity: 80%;
+    opacity: 0.8;
 
     user-select: none;
 

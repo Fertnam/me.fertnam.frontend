@@ -91,7 +91,7 @@ export default defineComponent({
 
         color: var(--white);
 
-        opacity: 95%;
+        opacity: 0.95;
 
         & > .name {
             margin-bottom: 10px;
