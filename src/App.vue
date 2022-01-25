@@ -17,5 +17,8 @@ export default defineComponent({
         AboutMe,
         Footer,
     },
+    beforeCreate() {
+        document.title = 'Fertnam - Web Developer'
+    },
 })
 </script>
