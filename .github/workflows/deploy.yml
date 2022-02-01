@@ -45,6 +45,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "--delete"
           SOURCE: "dist/"
-          TARGET: /home/fertnam/test
-          EXCLUDE: "/node_modules/"
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          EXCLUDE: "/dist/, /node_modules/"
 
