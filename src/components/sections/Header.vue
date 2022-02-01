@@ -43,7 +43,7 @@
 
         <KinesisElement :class="$style.info" :strength="30">
             <div :class="$style.name">Fertnam</div>
-            <div :class="$style.position">Web Developer</div>
+            <div :class="$style.position">Petuh</div>
         </KinesisElement>
     </KinesisContainer>
 </template>
