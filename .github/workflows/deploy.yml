@@ -12,18 +12,37 @@ on:
 # Что будем делать (экшены)
 jobs:
   # Имя действия, придумываем сами
-  hello:
+  deploy:
     # На какой ОС будет работать виртуальная машина
     runs-on: ubuntu-latest
 
     # Шаги действия
     steps:
       # Шаг 1
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Checkout
+        uses: actions/checkout@v2.4.0
 
       # Шаг 2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '16'
+
+      # Шаг 3
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          npm i --production
+          npm i @vue/cli-service
+          npm run lint --fix
+          npm run build --if-present
+         
+      # Шаг 4
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          TARGET: /home/fertnam/test
+          EXCLUDE: "/node_modules/"
+
