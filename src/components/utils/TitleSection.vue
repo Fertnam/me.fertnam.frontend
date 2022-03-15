@@ -5,11 +5,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Options, Prop } from 'vue-property-decorator'
+import { Vue, Prop } from 'vue-property-decorator'
 
-@Options({
-    name: 'TitleSection',
-})
 export default class TitleSection extends Vue {
     @Prop({ type: String, default: 'h2' }) readonly as!: string
 }
@@ -18,22 +15,20 @@ export default class TitleSection extends Vue {
 <style lang="scss" module>
 .titleSection {
     position: relative;
-    padding-bottom: 15px;
+    width: fit-content;
 
-    font-size: 2.5em;
-    opacity: 80%;
+    color: var(--blue-200);
 
     user-select: none;
 
     &:after {
         position: absolute;
+        left: 50%;
         bottom: 0;
-        left: 0;
 
-        width: 100%;
+        width: 60%;
         height: 2px;
-
-        background-color: var(--pink-50);
+        background-color: var(--blue-200);
 
         content: '';
     }

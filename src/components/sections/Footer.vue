@@ -1,8 +1,6 @@
 <template>
     <footer :class="$style.footer">
-        <Container :class="$style.container">
-            <div :class="$style.copyright">Fertnam © 2021</div>
-        </Container>
+        <Container :class="$style.container">Fertnam 2021</Container>
     </footer>
 </template>
 
@@ -11,24 +9,20 @@ import { Vue, Options } from 'vue-property-decorator'
 import Container from '@/components/utils/Container.vue'
 
 @Options({
-    name: 'Footer',
-    components: { Container },
+    components: {
+        Container,
+    },
 })
 export default class Footer extends Vue {}
 </script>
 
 <style lang="scss" module>
 .footer {
-    padding: 60px 0;
-    background-color: var(--purple-100);
+    padding: 80px 0;
 
-    & > .container {
-        & > .copyright {
-            font-size: 1.1em;
-            text-align: center;
+    background-color: var(--blue-200);
 
-            color: var(--pink-50);
-        }
-    }
+    color: var(--white);
+    text-align: center;
 }
 </style>

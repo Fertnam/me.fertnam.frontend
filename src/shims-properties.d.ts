@@ -1,5 +1,4 @@
 import { AxiosStatic } from 'axios'
-import { Services } from '@/services'
 
 export {}
 
@@ -10,6 +9,5 @@ declare module '@vue/runtime-core' {
         $refs: any
         $timeout: (time: number) => Promise<void>
         $axios: AxiosStatic
-        $services: Services
     }
 }
