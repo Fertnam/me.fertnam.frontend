@@ -14,11 +14,5 @@ export default class Container extends Vue {}
 .container {
     margin: 0 auto;
     max-width: 1200px;
-
-    padding: 0 15px;
-
-    @include xl {
-        padding: 0;
-    }
 }
 </style>

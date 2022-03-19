@@ -1,9 +1,9 @@
 <template>
     <nav :class="$style.navigation">
         <Container :class="$style.menu">
-            <div :class="$style.item">About me</div>
-            <div :class="$style.item">Portfolio</div>
-            <div :class="$style.item">Work Experience</div>
+            <div :class="$style.item">Обо мне</div>
+            <div :class="$style.item">Проекты</div>
+            <div :class="$style.item">Опыт работы</div>
             <div :class="$style.item">PDF</div>
         </Container>
     </nav>
@@ -30,9 +30,10 @@ export default class Navigation extends Vue {}
 
     & > .menu {
         display: flex;
+        user-select: none;
 
         & > .item {
-            padding: 25px 15px;
+            padding: 1.1rem 0.8rem;
 
             cursor: pointer;
             transition: background-color var(--transition-duration);

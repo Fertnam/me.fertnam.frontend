@@ -1,6 +1,6 @@
 <template>
     <footer :class="$style.footer">
-        <Container :class="$style.container">Fertnam 2021</Container>
+        <Container :class="$style.container">Fertnam © 2022</Container>
     </footer>
 </template>
 
@@ -18,11 +18,11 @@ export default class Footer extends Vue {}
 
 <style lang="scss" module>
 .footer {
-    padding: 80px 0;
-
-    background-color: var(--blue-200);
+    padding: 4rem 0;
 
     color: var(--white);
     text-align: center;
+
+    background-color: var(--blue-200);
 }
 </style>

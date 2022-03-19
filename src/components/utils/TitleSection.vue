@@ -14,20 +14,25 @@ export default class TitleSection extends Vue {
 
 <style lang="scss" module>
 .titleSection {
-    position: relative;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: fit-content;
 
     color: var(--blue-200);
+    font-size: 2rem;
 
     user-select: none;
 
     &:after {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
+        margin-top: 0.6rem;
 
         width: 60%;
-        height: 2px;
+        height: 5px;
+
         background-color: var(--blue-200);
 
         content: '';
