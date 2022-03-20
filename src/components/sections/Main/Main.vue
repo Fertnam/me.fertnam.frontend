@@ -23,6 +23,8 @@ export default class Main extends Vue {}
 <style lang="scss" module>
 .main {
     padding: 5rem 0;
+
+    color: var(--blue-300);
     background-color: var(--blue-50);
 }
 </style>
