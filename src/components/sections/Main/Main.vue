@@ -2,6 +2,8 @@
     <main :class="$style.main">
         <Container :class="$style.container">
             <AboutMe :class="$style.section" />
+            <Portfolio :class="$style.section" />
+            <WorkExperience :class="$style.section" />
         </Container>
     </main>
 </template>
@@ -10,11 +12,15 @@
 import { Vue, Options } from 'vue-property-decorator'
 import Container from '@/components/utils/Container.vue'
 import AboutMe from '@/components/sections/Main/AboutMe/AboutMe.vue'
+import Portfolio from '@/components/sections/Main/Portfolio/Porfolio.vue'
+import WorkExperience from '@/components/sections/Main/WorkExperience/WorkExperience.vue'
 
 @Options({
     components: {
         Container,
         AboutMe,
+        Portfolio,
+        WorkExperience,
     },
 })
 export default class Main extends Vue {}
@@ -26,5 +32,11 @@ export default class Main extends Vue {}
 
     color: var(--blue-300);
     background-color: var(--blue-50);
+
+    & > .container {
+        & > .section:not(:last-child) {
+            margin-bottom: 5rem;
+        }
+    }
 }
 </style>

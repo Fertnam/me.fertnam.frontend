@@ -11,6 +11,6 @@ export default class Header extends Vue {}
 <style lang="scss" module>
 .header {
     height: 100vh;
-    background-color: #060e19;
+    background-color: #5383c7;
 }
 </style>
