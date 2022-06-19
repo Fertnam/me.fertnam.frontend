@@ -26,18 +26,18 @@ import PortfolioCard from '@/components/sections/Main/Portfolio/PortfolioCard.vu
     },
 })
 export default class Portfolio extends Vue {
-    private cards = [
+    cards = [
         {
             title: 'Агентство недвижимости "Аском"',
-            background: '/images/askom.png',
+            background: 'images/askom.png',
         },
         {
             title: 'Агентство недвижимости "Аском"',
-            background: '/images/askom.png',
+            background: 'images/askom.png',
         },
         {
             title: 'Агентство недвижимости "Аском"',
-            background: '/images/askom.png',
+            background: 'images/askom.png',
         },
     ]
 }

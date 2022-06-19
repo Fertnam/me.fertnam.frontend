@@ -1,10 +1,20 @@
 <template>
     <nav :class="$style.navigation">
         <Container :class="$style.menu">
-            <div :class="$style.item">Обо мне</div>
-            <div :class="$style.item">Проекты</div>
-            <div :class="$style.item">Опыт работы</div>
-            <div :class="$style.item">PDF</div>
+            <div :class="$style.item">
+                <fa-icon :class="$style.icon" icon="user" />
+                <span :class="$style.value">Обо мне</span>
+            </div>
+
+            <div :class="$style.item">
+                <fa-icon :class="$style.icon" icon="box-archive" />
+                <span :class="$style.value">Портфолио</span>
+            </div>
+
+            <div :class="$style.item">
+                <fa-icon :class="$style.icon" icon="download" />
+                <span :class="$style.value">PDF</span>
+            </div>
         </Container>
     </nav>
 </template>
@@ -44,6 +54,10 @@ export default class Navigation extends Vue {}
 
             &:hover {
                 background-color: var(--blue-300);
+            }
+
+            & > .icon {
+                margin-right: 0.5rem;
             }
         }
     }

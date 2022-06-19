@@ -3,7 +3,7 @@
         <Container :class="$style.container">
             <AboutMe :class="$style.section" />
             <Portfolio :class="$style.section" />
-            <WorkExperience :class="$style.section" />
+            <WorkExperience v-if="false" :class="$style.section" />
         </Container>
     </main>
 </template>
@@ -34,8 +34,10 @@ export default class Main extends Vue {}
     background-color: var(--blue-50);
 
     & > .container {
-        & > .section:not(:last-child) {
-            margin-bottom: 5rem;
+        & > .section {
+            &:not(:last-child) {
+                margin-bottom: 5rem;
+            }
         }
     }
 }

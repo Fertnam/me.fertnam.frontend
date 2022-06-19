@@ -10,6 +10,8 @@
         <Skill :class="$style.item">PHP</Skill>
         <Skill :class="$style.item">Laravel</Skill>
         <Skill :class="$style.item">SQL</Skill>
+        <Skill :class="$style.item">GraphQL</Skill>
+        <Skill :class="$style.item">Docker</Skill>
     </div>
 </template>
 

@@ -10,7 +10,7 @@
                 <slot />
             </div>
 
-            <div :class="$style.more">Подробнее</div>
+            <div v-if="false" :class="$style.more">Подробнее</div>
         </div>
     </div>
 </template>
@@ -20,10 +20,10 @@ import { Vue, Prop } from 'vue-property-decorator'
 
 export default class PortfolioCard extends Vue {
     @Prop({ type: String, required: true })
-    private readonly background!: string
+    readonly background!: string
 
     public sayHello(): void {
-        alert('Hello')
+        // alert('Hello')
     }
 }
 </script>
